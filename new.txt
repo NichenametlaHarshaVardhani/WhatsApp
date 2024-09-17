@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h3>SearchedChats</h3>
+    <!-- <% for(chat of searchChat){%> -->
+     <% var firstfrom= chat.from;%>
+     console.log(firstfrom);
+        <div class="chat">
+            <p>From : <i> <%= chat.from %></i></p>
+            <div class="msg">
+                <p><%= chat.msg %></p>
+            </div>
+            
+            <p>To: <i> <%= chat.to %></i></p>
+            <hr>
+            <p><%= chat.created_at.toString().split(" ")[4] %></p>
+            <p><%= chat.created_at.toString().split(" ").slice(0,4).join("-") %></p>
+        </div>
+    <!-- <%}%> -->
+</body>
+</html>

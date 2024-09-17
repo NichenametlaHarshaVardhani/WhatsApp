@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e5ddd5;
+            padding: 20px;
+        }
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .chat {
+            display: flex;
+            margin-bottom: 10px;
+            max-width: 60%;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .left {
+            justify-content: flex-start;
+            background-color: #ffffff;
+            margin-right: auto;
+            
+        }
+        .right {
+            justify-content: flex-end;
+            background-color: #dcf8c6;
+            margin-left: auto;
+        }
+        .msg {
+            font-size: 14px;
+        }
+        .timestamp {
+            font-size: 12px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <center><h3>Mini WhatsApp</h3></center>
+    <div class="chat-container">
+        <% searchChat.forEach(function(chat) { %>
+            <div class="chat <%= chat.from.trim() === currentUser.trim() ? 'left' : 'right' %>">
+                <!-- <p>From:<%= chat.from%></p>
+                <br>
+                <p>To :<%= chat.to%></p>
+                <br> -->
+                <div>
+                   
+                    <p class="msg"><%= chat.msg %></p>
+                    <p class="timestamp"><%= chat.created_at.toString().split(" ")[4] %></p>
+                    <p class="timestamp"><%= chat.created_at.toString().split(" ").slice(0, 4).join(" ") %></p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</body>
+</html>
